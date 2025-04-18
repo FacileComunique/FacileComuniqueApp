@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Emoções</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    body {
+      background-color: #ffffff;
+      padding: 30px;
+      font-family: Arial, sans-serif;
+    }
+
+    h1 {
+      color: #0D47A1;
+      font-size: 24px;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .voltar {
+      text-decoration: none;
+      color: black;
+      font-size: 20px;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+
+    .lista {
+      max-width: 600px;
+      margin-left: 0; /* Alinha à esquerda */
+    }
+
+    .botao-emocao {
+      font-size: 20px;
+      margin: 12px 0;
+      padding: 12px 20px;
+      width: 100%;
+      background-color: #e3f2fd;
+      border: 2px solid #90caf9;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .botao-emocao.ativo {
+      background-color: #a5d6a7;
+      color: #1b5e20;
+    }
+
+    .emoji {
+      font-size: 36px; /* Emoji maior */
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Botão de voltar -->
+  <a href="index.html" class="voltar">
+    <i class="fas fa-arrow-left"></i> Voltar
+  </a>
+
+  <!-- Título -->
+  <h1>Facilidade para Demonstrar as Suas Emoções</h1>
+
+  <!-- Lista das emoções -->
+  <div class="lista">
+    <button class="botao-emocao" id="feliz">Feliz <span class="emoji">😊</span></button>
+    <button class="botao-emocao" id="triste">Triste <span class="emoji">😢</span></button>
+    <button class="botao-emocao" id="bravo">Bravo <span class="emoji">😡</span></button>
+    <button class="botao-emocao" id="ansioso">Ansioso <span class="emoji">😰</span></button>
+    <button class="botao-emocao" id="com-medo">Com Medo <span class="emoji">😨</span></button>
+    <button class="botao-emocao" id="surpreso">Surpreso <span class="emoji">😲</span></button>
+    <button class="botao-emocao" id="calmo">Calmo <span class="emoji">😌</span></button>
+    <button class="botao-emocao" id="cansado">Cansado <span class="emoji">😴</span></button>
+    <button class="botao-emocao" id="confuso">Confuso <span class="emoji">😕</span></button>
+    <button class="botao-emocao" id="orgulhoso">Orgulhoso <span class="emoji">😎</span></button>
+    <button class="botao-emocao" id="envergonhado">Envergonhado <span class="emoji">😳</span></button>
+    <button class="botao-emocao" id="aliviado">Aliviado <span class="emoji">😌</span></button>
+    <button class="botao-emocao" id="grato">Grato <span class="emoji">🙏</span></button>
+    <button class="botao-emocao" id="apaixonado">Apaixonado <span class="emoji">😍</span></button>
+    <button class="botao-emocao" id="irritado">Irritado <span class="emoji">😤</span></button>
+    <button class="botao-emocao" id="satisfeito">Satisfeito <span class="emoji">😌</span></button>
+    <button class="botao-emocao" id="divertido">Divertido <span class="emoji">😜</span></button>
+  </div>
+
+  <script>
+    // Usando delegação de evento para garantir que novos botões também funcionem
+    document.querySelector('.lista').addEventListener('click', function(e) {
+      const botao = e.target;
+      
+      // Verifica se o elemento clicado é um botão de emoção
+      if (botao.classList.contains('botao-emocao')) {
+        // Alterna a classe 'ativo' para mostrar que o botão foi clicado
+        botao.classList.toggle('ativo');
+        
+        // Mapeia os áudios para cada botão (se tiver áudios, caso contrário, omita)
+        const audioMap = {
+  'feliz': 'audio/emocoes/feliz.mp3',
+  'triste': 'audio/emocoes/triste.mp3',
+  'bravo': 'audio/emocoes/bravo.mp3',
+  'ansioso': 'audio/emocoes/ansioso.mp3',
+  'com-medo': 'audio/emocoes/com_medo.mp3',
+  'surpreso': 'audio/emocoes/surpreso.mp3',
+  'calmo': 'audio/emocoes/calmo.mp3',
+  'cansado': 'audio/emocoes/cansado.mp3',
+  'confuso': 'audio/emocoes/confuso.mp3',
+  'orgulhoso': 'audio/emocoes/orgulhoso.mp3',
+  'envergonhado': 'audio/emocoes/envergonhado.mp3',
+  'aliviado': 'audio/emocoes/aliviado.mp3',
+  'grato': 'audio/emocoes/grato.mp3',
+  'apaixonado': 'audio/emocoes/apaixonado.mp3',
+  'irritado': 'audio/emocoes/irritado.mp3',
+  'satisfeito': 'audio/emocoes/satisfeito.mp3',
+  'divertido': 'audio/emocoes/divertido.mp3',
+};
+
+
+        // Reproduz o áudio associado ao botão
+        const audioId = botao.id;
+        if (audioMap[audioId]) {
+          const audio = new Audio(audioMap[audioId]);
+          audio.play();
+          
+          // Quando o áudio terminar, remove a classe 'ativo' para voltar ao estado normal
+          audio.onended = function() {
+            botao.classList.remove('ativo');
+          };
+        }
+      }
+    });
+  </script>
+
+</body>
+
+<footer style="margin-top: 40px; text-align: center; font-size: 16px; padding: 12px; background-color: #f2f2f2; border-radius: 12px;">
+    💡 Tem alguma sugestão de emoção que podemos adicionar?<br>
+    <a href="mailto:contato.facilecomunique@gmail.com?subject=Nova%20Sugestão%20para%20o%20App&body=Olá,%20gostaria%20de%20sugerir%20a%20seguinte%20emoção%20ou%20necessidade:" style="color: #007aff; text-decoration: none; font-weight: bold;">
+      Envie sua ideia por e-mail
+    </a>
+  </footer>
+
+</body>
+</html>
+

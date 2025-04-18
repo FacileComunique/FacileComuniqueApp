@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Necessidades</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    body {
+      background-color: #ffffff;
+      padding: 30px;
+      font-family: Arial, sans-serif;
+    }
+
+    h1 {
+      color: #0D47A1;
+      font-size: 24px;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .voltar {
+      text-decoration: none;
+      color: black;
+      font-size: 20px;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+
+    .lista {
+      max-width: 600px;
+      margin-left: 0; /* Alinha à esquerda */
+    }
+
+    .botao-necessidade {
+      font-size: 20px;
+      margin: 12px 0;
+      padding: 12px 20px;
+      width: 100%;
+      background-color: #e3f2fd;
+      border: 2px solid #90caf9;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .botao-necessidade.ativo {
+      background-color: #a5d6a7;
+      color: #1b5e20;
+    }
+
+    .emoji {
+      font-size: 36px; /* Emoji maior */
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Botão de voltar -->
+  <a href="index.html" class="voltar">
+    <i class="fas fa-arrow-left"></i> Voltar
+  </a>
+
+  <!-- Título -->
+  <h1>Facilidade para Expressar o que Você Precisa no Seu Dia a Dia</h1>
+
+  <!-- Lista das necessidades --> 
+  <div class="lista">
+    <button class="botao-necessidade" id="preciso-ajuda">Preciso de Ajuda <span class="emoji">🤝</span></button>
+    <button class="botao-necessidade" id="quero-comer">Quero Comer <span class="emoji">🍽️</span></button>
+    <button class="botao-necessidade" id="quero-tomar-banho">Quero Tomar Banho <span class="emoji">🚿</span></button>
+    <button class="botao-necessidade" id="quero-beber-agua">Quero Beber Água <span class="emoji">🥤</span></button>
+    <button class="botao-necessidade" id="quero-escovar-dentes">Quero Escovar os Dentes <span class="emoji">🪥</span></button>
+    <button class="botao-necessidade" id="quero-brincar">Quero Brincar <span class="emoji">🧸</span></button>
+    <button class="botao-necessidade" id="quero-passear">Quero Passear <span class="emoji">🚶‍♂️</span></button>
+    <button class="botao-necessidade" id="quero-dormir">Quero Dormir <span class="emoji">🛏️</span></button>
+    <button class="botao-necessidade" id="quero-ir-banheiro">Quero ir ao Banheiro <span class="emoji">🚻</span></button>
+    <button class="botao-necessidade" id="quero-trocar-roupa">Quero Trocar de Roupa <span class="emoji">👕</span></button>
+    <button class="botao-necessidade" id="quero-ficar-papai-mamae">Quero Ficar com a Mamãe e o Papai <span class="emoji">👩‍👧‍👦</span></button>
+    <button class="botao-necessidade" id="quero-um-abraço">Quero Um Abraço <span class="emoji">🤗</span></button>
+    <button class="botao-necessidade" id="quero-ler">Quero Ler <span class="emoji">📚</span></button>
+    <button class="botao-necessidade" id="quero-assistir-tv">Quero Assistir TV <span class="emoji">📺</span></button>
+    <button class="botao-necessidade" id="quero-cantar">Quero Cantar <span class="emoji">🎤</span></button>
+    <button class="botao-necessidade" id="quero-desenhar">Quero Desenhar <span class="emoji">✏️</span></button>
+    <button class="botao-necessidade" id="quero-jogar-amigo">Quero Jogar com Meu Amigo <span class="emoji">🎮</span></button>
+    <button class="botao-necessidade" id="quero-ir-medico">Quero Ir ao Médico <span class="emoji">🏥</span></button>
+    <button class="botao-necessidade" id="quero-brincar-cachorro">Quero Brincar com o Meu Cachorro <span class="emoji">🐶</span></button>
+    <button class="botao-necessidade" id="quero-comer-doces">Quero Comer Doces <span class="emoji">🍬</span></button>
+    <button class="botao-necessidade" id="quero-ir-escola">Quero Ir à Escola <span class="emoji">🏫</span></button>
+    <button class="botao-necessidade" id="quero-ir-praca">Quero Ir à Praça <span class="emoji">🌳</span></button>
+    <button class="botao-necessidade" id="quero-ir-supermercado">Quero Ir ao Supermercado <span class="emoji">🛒</span></button>
+  </div>
+
+  <script>
+    // Usando delegação de evento para garantir que novos botões também funcionem
+    document.querySelector('.lista').addEventListener('click', function(e) {
+      const botao = e.target;
+      
+      // Verifica se o elemento clicado é um botão de necessidade
+      if (botao.classList.contains('botao-necessidade')) {
+        // Alterna a classe 'ativo' para mostrar que o botão foi clicado
+        botao.classList.toggle('ativo');
+        
+        // Mapeia os áudios para cada botão
+const audioMap = {
+  'preciso-ajuda': 'audio/necessidades/preciso_ajuda.mp3',
+  'quero-comer': 'audio/necessidades/quero_comer.mp3',
+  'quero-tomar-banho': 'audio/necessidades/quero_tomar_banho.mp3',
+  'quero-beber-agua': 'audio/necessidades/quero_beber_agua.mp3',
+  'quero-escovar-dentes': 'audio/necessidades/quero_escovar_dentes.mp3',
+  'quero-brincar': 'audio/necessidades/quero_brincar.mp3',
+  'quero-passear': 'audio/necessidades/quero_passear.mp3',
+  'quero-dormir': 'audio/necessidades/quero_dormir.mp3',
+  'quero-ir-banheiro': 'audio/necessidades/quero_ir_banheiro.mp3',
+  'quero-trocar-roupa': 'audio/necessidades/quero_trocar_roupa.mp3',
+  'quero-ficar-papai-mamae': 'audio/necessidades/quero_ficar_papai_mamae.mp3',
+  'quero-um-abraço': 'audio/necessidades/quero_um_abraco.mp3',
+  'quero-ler': 'audio/necessidades/quero_ler.mp3',
+  'quero-assistir-tv': 'audio/necessidades/quero_assistir_tv.mp3',
+  'quero-cantar': 'audio/necessidades/quero_cantar.mp3',
+  'quero-desenhar': 'audio/necessidades/quero_desenhar.mp3',
+  'quero-jogar-amigo': 'audio/necessidades/quero_jogar_com_meu_amigo.mp3',
+  'quero-ir-medico': 'audio/necessidades/quero_ir_medico.mp3',
+  'quero-brincar-cachorro': 'audio/necessidades/quero_brincar_cachorro.mp3',
+  'quero-comer-doces': 'audio/necessidades/quero_comer_doces.mp3',
+  'quero-ir-escola': 'audio/necessidades/quero_ir_escola.mp3',
+  'quero-ir-praca': 'audio/necessidades/quero_ir_praca.mp3',
+  'quero-ir-supermercado': 'audio/necessidades/quero_ir_supermercado.mp3',
+};
+
+
+        // Reproduz o áudio associado ao botão
+        const audioId = botao.id;
+        if (audioMap[audioId]) {
+          const audio = new Audio(audioMap[audioId]);
+          audio.play();
+          
+          // Quando o áudio terminar, remove a classe 'ativo' para voltar ao estado normal
+          audio.onended = function() {
+            botao.classList.remove('ativo');
+          };
+        }
+      }
+    });
+  </script>
+
+</body>
+
+<footer style="margin-top: 40px; text-align: center; font-size: 16px; padding: 12px; background-color: #f2f2f2; border-radius: 12px;">
+  💡 Tem alguma sugestão de necessidade que podemos adicionar?<br>
+  <a href="mailto:contato.facilecomunique@gmail.com?subject=Nova%20Sugestão%20para%20o%20App&body=Olá,%20gostaria%20de%20sugerir%20a%20seguinte%20emoção%20ou%20necessidade:" style="color: #007aff; text-decoration: none; font-weight: bold;">
+    Envie sua ideia por e-mail
+  </a>
+</footer>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

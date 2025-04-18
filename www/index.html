@@ -1,0 +1,171 @@
+<!DOCTYPE html> 
+<html>
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="utf-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#2196f3">
+
+    <title>Facile Comunique - Comunicação Alternativa</title>
+
+    <link rel="stylesheet" href="lib/framework7-bundle.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="css/remixicon/remixicon.css">
+</head>
+
+<body>
+    <!-- App root -->
+    <div id="app">
+
+        <!-- Main view -->
+        <div class="view view-main">
+
+            <!-- Bottom Toolbar -->
+            <div class="toolbar toolbar-bottom">
+                <div class="toolbar-inner display-flex">
+                    <a href="/index/" class="tab-link link active" style="display: flex; flex-direction: column; align-items: center;">
+                        <i class="ri-home-5-fill" style="font-size: 24px;"></i>
+                        <span>Início</span>
+                    </a>
+                    <a href="link2.html" class="link external" style="display: flex; flex-direction: column; align-items: center;">
+                        <i class="ri-restaurant-fill" style="font-size: 24px;"></i>
+                        <span>Necessidades</span>
+                    </a>
+                    <a href="link3.html" class="link external" style="display: flex; flex-direction: column; align-items: center;">
+                        <i class="ri-emotion-happy-fill" style="font-size: 24px;"></i>
+                        <span>Emoções</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Initial Page -->
+            <div data-name="index" class="page color-theme-blue">
+
+                <!-- Top Navbar -->
+                <div class="navbar" style="background-color: #e3f2fd;">
+                    <div class="navbar-bg"></div>
+                    <div class="navbar-inner justify-content-center">
+                        <div class="title animated-navbar">
+                            🧩💬 <span class="logo-text" style="color: #0D47A1; font-weight: bold;">Facile Comunique</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Page Content -->
+                <div class="page-content">
+
+                    <!-- Título da Página -->
+                    <div class="block text-align-center">
+                        <h2 style="color: #0D47A1;">Bem-vindo ao Facile Comunique</h2>
+                    </div>
+
+                    <!-- Frase de carinho -->
+                    <div class="block text-align-center">
+                        <p style="font-size: 18px; color: #1565c0;">
+                            💙 Você é incrível, e estamos aqui pra te ajudar a se comunicar!
+                        </p>
+                    </div>
+
+                    <!-- Imagens ilustrativas -->
+                    <div class="block text-align-center">
+                        <img src="https://img.freepik.com/free-vector/jigsaw-puzzle-human-silhouette_1308-127027.jpg?t=st=1744737980~exp=1744741580~hmac=4bef6e384d63e4219f0732e7dc11c4e4acba448a70cb476b39839314ddf75bea&w=740"
+                             alt="Símbolo do Autismo" 
+                             style="max-width: 60%; max-height: 300px; border-radius: 16px; margin-bottom: 20px;">
+
+                    </div>
+
+                    <!-- Descrição -->
+                    <div class="block">
+                        <p>
+                            <strong>Facile Comunique</strong> é um aplicativo de Comunicação Alternativa desenvolvido para ajudar crianças com dificuldades de fala a se expressarem de forma simples, usando imagens e sons.
+                        </p>
+                    </div>
+
+                    <!-- Botões Adicionais -->
+                    <div class="block text-align-center">
+                        <a href="/responsaveis/" class="button button-fill color-gray" style="font-size: 14px; margin-bottom: 10px;">
+                            🔒 Área do Responsável
+                        </a>
+
+                        <a href="#" class="button button-outline color-blue" style="font-size: 14px;" onclick="openAcessibilidadeModal()">
+                            ⚙️ Preferências de Acessibilidade
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Acessibilidade -->
+    <div class="popup" id="acessibilidade-modal">
+        <div class="view">
+            <div class="page">
+                <div class="navbar">
+                    <div class="navbar-inner">
+                        <div class="title">Acessibilidade</div>
+                        <div class="right"><a href="#" class="link popup-close">Fechar</a></div>
+                    </div>
+                </div>
+                <div class="page-content">
+                    <div class="block">
+                        <h3>Preferências</h3>
+                        <label><input type="checkbox" id="toggle-contrast"> Contraste alto</label><br>
+                        <label><input type="checkbox" id="toggle-font"> Fonte grande</label><br>
+                        <label><input type="checkbox" id="toggle-sound"> Sons ativados</label><br>
+                        <label><input type="checkbox" id="toggle-dark"> Modo escuro</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script type="text/javascript" src="lib/framework7-bundle.min.js"></script>
+    <script type="text/javascript" src="lib/jquery-3.7.0.min.js"></script>
+    <script type="text/javascript" src="js/routes.js"></script>
+    <script src="cordova.js"></script>
+
+    <!-- Scripts de funcionalidade -->
+    <script>
+        function openAcessibilidadeModal() {
+            var modal = document.getElementById('acessibilidade-modal');
+            modal.classList.add('modal-in');
+            modal.style.display = 'block';
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById('toggle-contrast').addEventListener('change', function () {
+                document.body.classList.toggle('high-contrast', this.checked);
+            });
+
+            document.getElementById('toggle-font').addEventListener('change', function () {
+                document.body.classList.toggle('large-font', this.checked);
+            });
+
+            document.getElementById('toggle-sound').addEventListener('change', function () {
+                localStorage.setItem('sounds-enabled', this.checked);
+                alert('Sons ' + (this.checked ? 'ativados' : 'desativados') + ' com sucesso!');
+            });
+
+            document.getElementById('toggle-dark').addEventListener('change', function () {
+                document.body.classList.toggle('dark-mode', this.checked);
+            });
+        });
+
+        // Oculta o splash screen assim que o Cordova estiver pronto
+        document.addEventListener('deviceready', function () {
+            if (navigator && navigator.splashscreen) {
+                navigator.splashscreen.hide();
+            }
+        }, false);
+    </script>
+</body>
+
+</html>
+
+

@@ -1,0 +1,105 @@
+:root{
+    --branco: #FFFFFF;
+    --azul: #0000FF;
+    --vermelho: #FF0000;
+    --amarelo: #FFFF00;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+body{
+    font-family: "Bebas Neue", sans-serif;
+}
+
+.toolbar{
+    height: 80px;
+}
+
+.tab-link{
+    display: flex;
+    justify-content: center;
+    flex-flow: column wrap;
+}
+
+.toolbar-inner {
+    background: var(--branco);
+border-top:1px solid var(--azul);
+}
+
+.toolbar-inner .link{    
+    flex:1;
+    height: 80px;  
+    line-height: 25px; 
+	font-weight:bold;  
+    color: var(--azul); 
+}
+
+.toolbar-inner .link:not(.active){
+    color:var(--preto);
+	font-weight:normal;
+}
+
+.toolbar-inner > .link i{
+    font-size: 28px;
+}
+
+/* === Estilos de Acessibilidade - Melhorados === */
+
+/* Modo Escuro (Cinza escuro com azul claro) */
+.dark-mode {
+    background-color: #121212 !important;
+    color: #e0e0e0 !important;
+}
+
+.dark-mode .navbar,
+.dark-mode .toolbar,
+.dark-mode .block,
+.dark-mode .page-content {
+    background-color: #1f1f1f !important;
+    color: #e0e0e0 !important;
+}
+
+.dark-mode a,
+.dark-mode .button {
+    color: #90caf9 !important;
+}
+
+.dark-mode img {
+    filter: brightness(0.9) contrast(1.1);
+}
+
+/* Contraste Alto (Azul escuro + amarelo) */
+.high-contrast {
+    background-color: #001f3f !important;
+    color: #ffff00 !important;
+}
+
+.high-contrast .navbar,
+.high-contrast .toolbar,
+.high-contrast .block,
+.high-contrast .page-content {
+    background-color: #001f3f !important;
+    color: #ffff00 !important;
+}
+
+.high-contrast a,
+.high-contrast .button {
+    color: #ffeb3b !important;
+    font-weight: bold;
+}
+
+.high-contrast img {
+    filter: brightness(1.2) contrast(1.3);
+}
+
+/* Fonte Grande */
+.large-font {
+    font-size: 20px !important;
+}
+
+.large-font .block,
+.large-font .navbar,
+.large-font .toolbar,
+.large-font .button {
+    font-size: 20px !important;
+}

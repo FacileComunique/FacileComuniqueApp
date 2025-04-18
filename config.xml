@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="br.com.communication.facile" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Facile Comunique</name>
+    <description>Aplicativo de Comunicação Alternativa (AAC) Simplificado</description>
+    <author email="contato.facilecomunique@gmail.com" href="https://cordova.apache.org">
+        Erica Carneiro
+    </author>
+
+    <content src="index.html" />
+
+    <!-- Permissões de mídia e navegação -->
+    <access origin="*" />
+    <allow-navigation href="*" />
+    <allow-intent href="*" />
+
+    <!-- Preferências Globais -->
+    <preference name="SplashScreen" value="screen" />
+    <preference name="SplashScreenDelay" value="1000" />
+    <preference name="AutoHideSplashScreen" value="true" />
+    <preference name="FadeSplashScreenDuration" value="500" />
+    <preference name="SplashMaintainAspectRatio" value="true" />
+    <preference name="SplashShowOnlyFirstTime" value="false" />
+    <preference name="MediaPlaybackRequiresUserAction" value="false" />
+
+    <!-- Plataforma Android -->
+    <platform name="android">
+        <icon src="res/icon.png" />
+        <preference name="AndroidWindowSplashScreenAnimatedIcon" value="res/splash.png" />
+        <allow-intent href="market:*" />
+    </platform>
+</widget>
+
