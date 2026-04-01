@@ -97,10 +97,10 @@
   <script>
     // Usando delegação de evento para garantir que novos botões também funcionem
     document.querySelector('.lista').addEventListener('click', function(e) {
-      const botao = e.target;
+      const botao = e.target.closet('.botao-necessidade');
       
       // Verifica se o elemento clicado é um botão de necessidade
-      if (botao.classList.contains('botao-necessidade')) {
+      if (botao) {
         // Alterna a classe 'ativo' para mostrar que o botão foi clicado
         botao.classList.toggle('ativo');
         
