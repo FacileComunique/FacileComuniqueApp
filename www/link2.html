@@ -97,10 +97,10 @@
   <script>
     // Usando delegação de evento para garantir que novos botões também funcionem
     document.querySelector('.lista').addEventListener('click', function(e) {
-      const botao = e.target;
+      const botao = e.target.closest('.botao-necessidade');
       
       // Verifica se o elemento clicado é um botão de necessidade
-      if (botao.classList.contains('botao-necessidade')) {
+      if (!botao) return;
         // Alterna a classe 'ativo' para mostrar que o botão foi clicado
         botao.classList.toggle('ativo');
         
@@ -136,15 +136,18 @@ const audioMap = {
         const audioId = botao.id;
         if (audioMap[audioId]) {
           const audio = new Audio(audioMap[audioId]);
-          audio.play();
+          audio.play().catch(err => {
+            console.log("Erro ao tocar áudio:", err);
+            alert("Erro ao tocar áudio");
+          });
           
           // Quando o áudio terminar, remove a classe 'ativo' para voltar ao estado normal
-          audio.onended = function() {
-            botao.classList.remove('ativo');
-          };
-        }
-      }
-    });
+    audio.onended = function() {
+      botao.classList.remove('ativo');
+    };
+  }
+});
+
   </script>
 
 </body>
